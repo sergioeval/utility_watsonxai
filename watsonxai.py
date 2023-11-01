@@ -9,6 +9,8 @@ class WatsonxAi:
                 modelId, 
                 projectId, 
                 cloudApiKey, 
+                stopSequences=[],
+                repetitionPenalty= 1,
                 decodingMethod='greedy',
                 minTokens=0,
                 maxTokens=50):
@@ -18,6 +20,8 @@ class WatsonxAi:
         self.decodingMethod = decodingMethod
         self.maxTokens = maxTokens
         self.minTokens = minTokens
+        self.stopSequences = stopSequences
+        self.repetitionPenalty = repetitionPenalty
     
     def create_model(self):
         credentials = { 
@@ -29,7 +33,8 @@ class WatsonxAi:
             "DECODING_METHOD" : self.decodingMethod, 
             "MIN_NEW_TOKENS" : self.minTokens, 
             "MAX_NEW_TOKENS" : self.maxTokens,
-            "TEMPERATURE": 0 
+            "STOP_SEQUENCES" : self.stopSequences,
+            "REPETITION_PENALTY": self.repetitionPenalty
         }
 
         self.model = Model( self.modelId, credentials, gen_parms, self.projectId )
