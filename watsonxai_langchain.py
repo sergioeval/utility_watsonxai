@@ -8,6 +8,7 @@ from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes
 class WatsonxAiLangchain:
     '''
     To make available watsonxai usage 
+    
     '''
     def __init__(self, 
                 modelId, 
