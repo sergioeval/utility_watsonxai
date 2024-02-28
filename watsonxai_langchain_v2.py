@@ -55,7 +55,8 @@ class WatsonxAiLangchain:
             "MAX_NEW_TOKENS": int, #int
             "MIN_NEW_TOKENS": int, #int
             "STOP_SEQUENCES": [], # list of stop seqences , is optional
-            "REPETITION_PENALTY": 1 # 1.0 to 2.0
+            "REPETITION_PENALTY": 1, # 1.0 to 2.0
+            "TEMPERATURE": 0,  #0 to 2,
         }
         - 
 
@@ -83,7 +84,8 @@ class WatsonxAiLangchain:
                 GenParams.MAX_NEW_TOKENS: params['MAX_NEW_TOKENS'],
                 GenParams.MIN_NEW_TOKENS: params['MIN_NEW_TOKENS'],
                 GenParams.STOP_SEQUENCES: params['STOP_SEQUENCES'],
-                GenParams.REPETITION_PENALTY: params['REPETITION_PENALTY']
+                GenParams.REPETITION_PENALTY: params['REPETITION_PENALTY'],
+                GenParams.TEMPERATURE: params['TEMPERATURE']
             }
 
         if self.decoding_method == DecodingMethods['SAMPLE']:
